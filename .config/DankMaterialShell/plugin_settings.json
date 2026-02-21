@@ -1,0 +1,16 @@
+{
+  "dankBitwarden": {
+    "enabled": true,
+    "trigger": "["
+  },
+  "dankNotepadModule": {
+    "enabled": true
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "="
+  },
+  "dankGifSearch": {
+    "enabled": true
+  }
+}

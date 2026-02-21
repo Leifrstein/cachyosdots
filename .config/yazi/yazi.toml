@@ -1,0 +1,36 @@
+[mgr]
+sort_by = "extension"
+sort_sensitive = true
+sort_dir_first = true
+linemode = "mtime"
+show_hidden = true
+show_symlink = true
+
+[opener]
+open = [
+  {run = 'xdg-open "$1"', desc = "Open", orphan = true}
+]
+
+[preview]
+wrap = "yes"
+
+[plugin]
+prepend_preloaders = [
+  # Office Documents
+  {mime = "application/openxmlformats-officedocument.*", run = "office"},
+  {mime = "application/oasis.opendocument.*", run = "office"},
+  {mime = "application/ms-*", run = "office"},
+  {mime = "application/msword", run = "office"},
+  {name = "*.docx", run = "office"}
+]
+
+prepend_previewers = [
+  {name = "*.md", run = "glow"},
+  {mime = "audio/*", run = "exifaudio"},
+  # Office Documents
+  {mime = "application/openxmlformats-officedocument.*", run = "office"},
+  {mime = "application/oasis.opendocument.*", run = "office"},
+  {mime = "application/ms-*", run = "office"},
+  {mime = "application/msword", run = "office"},
+  {name = "*.docx", run = "office"}
+]

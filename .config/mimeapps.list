@@ -1,0 +1,22 @@
+[Added Associations]
+inode/directory=org.gnome.Nautilus.desktop
+
+[Default Applications]
+inode/directory=org.gnome.Nautilus.desktop
+application/toml=helix.desktop
+application/x-yaml=helix.desktop
+text/*=helix.desktop
+text/html=org.qutebrowser.qutebrowser.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+application/oxps=org.pwmt.zathura-pdf-mupdf.desktop
+application/xhtml+xml=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop
+x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop
+application/vnd.ms-excel=calc.desktop
+application/vnd.ms-powerpoint=impress.desktop
+application/vnd.oasis.opendocument.*=startcenter.desktop
+application/vnd.openxmlformats-officedocument.*=startcenter.desktop
+audio/*=tauonmb.desktop
+image/*=org.gnome.Loupe.desktop
+video/*=mpv.desktop
+x-scheme-handler/terminal=com.mitchellh.ghostty.desktop

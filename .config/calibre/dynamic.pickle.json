@@ -1,0 +1,30 @@
+{
+  "database location dialog": "/home/leifrstein/Books",
+  "import-calibre-palette": "/home/leifrstein/Downloads",
+  "notified-version-updates": {
+    "__class__": "set",
+    "__value__": [
+      "9.3"
+    ]
+  },
+  "sort_history": [
+    [
+      "series",
+      true
+    ],
+    [
+      "publisher",
+      true
+    ],
+    [
+      "series",
+      true
+    ],
+    [
+      "timestamp",
+      false
+    ]
+  ],
+  "welcome_wizard_device": "kindle",
+  "welcome_wizard_was_run": true
+}

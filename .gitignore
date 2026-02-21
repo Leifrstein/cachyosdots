@@ -1,0 +1,36 @@
+# Logseq
+.config/Logseq/*
+!.config/Logseq/configs.edn
+!.config/Logseq/Preferences
+
+# Libreoffice
+.config/libreoffice/4/user/*
+!.config/libreoffice/4/user/config/
+
+# DankMaterialShell
+.config/DankMaterialShell/plugins/
+.config/DankMaterialShell/.firstlaunch
+.config/DankMaterialShell/.changelog-1.4
+
+# ludusavi
+.config/ludusavi/cache.yaml
+.config/ludusavi/manifest.yaml
+
+# geany
+.config/geany/session.conf
+
+# mpv
+.config/mpv/scripts/
+
+# yazi
+.config/yazi/plugins/
+
+# Secrets
+lockfile
+ipc-socket
+*.lock
+*.README
+*.backup
+*.bak
+*.log
+*.ffmetadata
