@@ -1,0 +1,10 @@
+[Unit]
+Description=Ludusavi backup timer
+
+[Timer]
+OnBootSec=5m
+OnUnitActiveSec=5m
+Unit=ludusavi-backup.service
+
+[Install]
+WantedBy=timers.target
