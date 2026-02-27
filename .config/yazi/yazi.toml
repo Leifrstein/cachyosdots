@@ -8,7 +8,8 @@ show_symlink = true
 
 [opener]
 open = [
-  {run = 'xdg-open "$1"', desc = "Open", orphan = true}
+  {run = 'xdg-open "$1"', desc = "Open", orphan = true},
+  {mime = "application/pdf", run = 'zathura "$1"', desc = "Open with Zathura", orphan = true}
 ]
 
 [preview]
