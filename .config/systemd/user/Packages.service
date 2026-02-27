@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup explicitly installed packages to a list
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/Packages.sh

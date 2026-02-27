@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup explicitly installed foreign/AUR packages to a list
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/AUR-packages.sh
