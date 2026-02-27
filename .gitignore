@@ -27,6 +27,9 @@
 # mpv
 .config/mpv/scripts/
 
+# qutebrowser
+.config/qutebrowser/autoconfig.yml
+
 # yazi
 .config/yazi/plugins/
 
