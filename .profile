@@ -6,3 +6,5 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus 
 export SDL_IM_MODULE=ibus
+export RESTIC_COMPRESSION=max
+export RESTIC_PASSWORD_FILE='$HOME/Restic/.pass'
