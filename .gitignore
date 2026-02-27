@@ -26,7 +26,6 @@
 
 # mpv
 .config/mpv/scripts/
-.config/mpv/persistent_config.json
 
 # qutebrowser
 .config/qutebrowser/autoconfig.yml
