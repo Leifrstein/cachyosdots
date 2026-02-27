@@ -27,6 +27,9 @@
 # mpv
 .config/mpv/scripts/
 
+# qBittorrent
+.config/qBittorrent/qBittorrent-data.conf
+
 # qutebrowser
 .config/qutebrowser/autoconfig.yml
 
