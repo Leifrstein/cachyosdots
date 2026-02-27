@@ -17,6 +17,9 @@ left = ["mode", "spinner", "file-name", "separator", "file-modification-indicato
 right = ["diagnostics", "separator", "file-type", "separator", "selections", "separator", "position", "file-encoding"]
 separator = ""
 
+[editor.soft-wrap]
+enable = true
+
 [editor.auto-save]
 after-delay.enable = true
 after-delay.timeout = 120000
