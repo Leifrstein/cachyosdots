@@ -115,7 +115,8 @@ layout {
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     // preset-window-heights { }
     // You can change the default width of the new windows.
-    default-column-width { proportion 1.0; }
+    // default-column-width { proportion 1.0; }
+    default-column-width {}
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
     // By default focus ring and border are rendered as a solid background rectangle
@@ -160,6 +161,7 @@ overview {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 environment {
   XDG_CURRENT_DESKTOP "niri"
+  SSH_AUTH_SOCK "/run/user/1000/gcr/ssh"
 }
 hotkey-overlay {
     skip-at-startup
@@ -270,6 +272,9 @@ recent-windows {
 
 // Autostart apps
 spawn-at-startup "ibus-daemon -drx"
+spawn-at-startup "qbittorrent"
+spawn-at-startup "systemctl" "--user" "import-environment" "SSH_AUTH_SOCK"
+spawn-at-startup "valent" "--gapplication-service"
 
 // Include dms files
 include "dms/colors.kdl"
