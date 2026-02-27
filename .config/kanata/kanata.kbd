@@ -1,0 +1,82 @@
+;; Basic configuration.
+(defcfg
+  process-unmapped-keys yes
+  linux-dev-names-include (
+    "SONiX USB DEVICE"
+    "SONiX USB DEVICE Keyboard"
+  )
+)
+
+;; Layout ISO-105
+;; Note: if you change the location of a key, remember to adjust layer base
+;; accordingly
+(defsrc
+  esc       f1 f2 f3 f4 f5 f6 f7 f8 f9 f10  f11  f12  sys slck brk
+  `      1  2  3  4  5  6  7  8  9  0  min  eql  bks  ins home pgup
+  tab    q  w  e  r  t  y  u  i  o  p  lbrc rbrc ret  del end  pgdn
+  caps   a  s  d  f  g  h  j  k  l  ;  apos bksl
+  lsft nubs z  x  c  v  b  n  m  ,  .  /    ro   rsft     up
+  lctl lmet lalt      Space      ralt       menu rctl lft down rght
+)
+
+;; Aliases for the right keys --> abnt2.
+(defalias
+  ç           ;
+  Ç           S-;
+  apostrophe  grave
+  doublequote S-grave
+  ´           lbrc
+  `           S-lbrc
+  [           rbrc
+  {           S-rbrc
+  ~           apos
+  ^           S-apos
+  ]           bksl
+  }           S-bksl
+  ;           /
+  :           S-/
+  /           ro
+  ?           S-ro
+)
+
+;; Layout BR-ABNT2
+;; Remember to configure your system to use ABNT2 and to keep the layout 
+;; synchronized with defsrc section
+(deflayer base
+  esc            f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12  sys slck brk
+  @apostrophe 1  2  3  4  5  6  7  8  9  0  min eql bks  ins home pgup
+  tab         q  w  e  r  t  y  u  i  o  p  @´  @[  ret  del end  pgdn
+  caps        a  s  d  f  g  h  j  k  l  @ç @~  @]
+  lsft   nubs z  x  c  v  b  n  m  ,  .  @; @/     rsft      up
+  lctl   lmet lalt      Space      ralt     menu   rctl  lft down rght
+)
+
+;; Layout Colemak-CAW
+(deflayer colemod
+  caps         f1 f2 f3 f4          f5 f6 f7 f8 f9 f10 f11 f12  sys slck brk
+  @layout   1  2  3  4  5           6  7  8  9  0  @[  @]  bks  ins home pgup
+  tab       b  y  o  u  @apostrophe @; l  d  w  v  z   eql ret  del end  pgdn
+  esc       c  i  e  a  ,           .  h  t  s  n  q   @~
+  lsft nubs g  x  j  k  min         @/ r  m  f  p  @´     rsft      up
+  lctl lmet lalt           Space          ralt     menu   rctl  lft down rght
+)
+
+#|
+
+;; Variables for common-used values
+(defvar
+  tap-repress-timeout 100
+  hold-timeout        200
+  tt $tap-repress-timeout
+  ht $hold-timeout
+)
+
+;; Aliases for use with engrammer/navigation layers
+(defalias
+  br  (layer-switch base)
+  gr  (layer-switch engrammer)
+  nav (layer-switch navigation)
+)
+
+|#
+;; todo - make a compose key to combine apostrophe with c to make ç in engrammer
