@@ -12,6 +12,11 @@
 .config/DankMaterialShell/.firstlaunch
 .config/DankMaterialShell/.changelog-1.4
 
+# Vesktop
+.config/vesktop/*
+!.config/vesktop/settings/
+!.config/vesktop/settings.json
+
 # ludusavi
 .config/ludusavi/cache.yaml
 .config/ludusavi/manifest.yaml
