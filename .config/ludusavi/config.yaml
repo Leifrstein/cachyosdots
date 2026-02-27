@@ -10,6 +10,8 @@ theme: dark
 roots:
   - store: heroic
     path: /home/leifrstein/.config/heroic
+  - store: steam
+    path: /home/leifrstein/.local/share/Steam
 redirects: []
 backup:
   path: /home/leifrstein/Games/Saves Backup
@@ -46,8 +48,9 @@ backup:
         level: 10
   onlyConstructive: false
 restore:
-  path: /home/leifrstein/ludusavi-backup
-  ignoredGames: []
+  path: /home/leifrstein/Games/Saves Backup
+  ignoredGames:
+    - "Baldur's Gate 3"
   toggledPaths: {}
   toggledRegistry: {}
   sort:
