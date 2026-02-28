@@ -26,6 +26,7 @@
 
 # mpv
 .config/mpv/scripts/
+.config/mpv/persistent_config.json
 
 # niri
 .config/niri/local.kdl
