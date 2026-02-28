@@ -27,6 +27,9 @@
 # mpv
 .config/mpv/scripts/
 
+# niri
+.config/niri/local.kdl
+
 # qBittorrent
 .config/qBittorrent/qBittorrent-data.conf
 
