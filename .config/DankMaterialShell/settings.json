@@ -191,7 +191,7 @@
   "networkPreference": "auto",
   "iconTheme": "Papirus",
   "cursorSettings": {
-    "theme": "catppuccin-mocha-mauve-cursors",
+    "theme": "cat-mocha",
     "size": 20,
     "niri": {
       "hideWhenTyping": false,
@@ -416,6 +416,10 @@
         },
         {
           "id": "idleInhibitor",
+          "enabled": true
+        },
+        {
+          "id": "dankKDEConnect",
           "enabled": true
         },
         {

@@ -12,5 +12,8 @@
   },
   "dankGifSearch": {
     "enabled": true
+  },
+  "dankKDEConnect": {
+    "enabled": true
   }
 }
