@@ -124,15 +124,16 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Ctrl+XF86Launch1 { screenshot-screen; }
     Print { screenshot; }
+    Mod+S hotkey-overlay-title="Screenshot and annotate" { spawn "sh" "-c" "$HOME/.config/niri/scripts/screenshot ~/Pictures/Screenshots --annotate"; }
     XF86Launch1 { screenshot; }
     Mod+Shift+Escape { quit; }
-    Mod+G hotkey-overlay-title="File Manager" { spawn "ghostty" "-e" "yazi"; }
-    Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     Mod+Ctrl+E hotkey-overlay-title="Stop replay-buffer" { spawn "sh" "-c" "$HOME/bin/stop-replay.sh"; }
     Mod+E hotkey-overlay-title="Start replay-buffer" { spawn "sh" "-c" "$HOME/bin/replay-buffer.sh"; }
+    Mod+G hotkey-overlay-title="File Manager" { spawn "ghostty" "-e" "yazi"; }
     Mod+O hotkey-overlay-title="Start screencap" { spawn "sh" "-c" "$HOME/bin/start-recording.sh"; }
     Mod+P hotkey-overlay-title="Stop screencap" { spawn "sh" "-c" "$HOME/bin/stop-recording.sh"; }
     Mod+Shift+E hotkey-overlay-title="Save replay" { spawn "sh" "-c" "$HOME/bin/save-replay.sh"; }
+    Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Space repeat=false { toggle-overview; }
