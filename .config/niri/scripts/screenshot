@@ -1,0 +1,116 @@
+#!/usr/bin/env scriptisto
+// vim: shiftwidth=2 softtabstop=2
+
+// scriptisto-begin
+// script_src: src/main.rs
+// build_cmd: >
+//    cargo clippy --color=always &&
+//    cargo build --release --color=always &&
+//    strip ./target/release/screenshot
+// target_bin: ./target/release/screenshot
+// files:
+//  - path: Cargo.toml
+//    content: |
+//     package = { name = "screenshot", version = "0.1.0", edition = "2024"}
+//     [dependencies]
+//     scopeguard = "1.2.0"
+//     chrono = "0.4"
+// scriptisto-end
+
+#![allow(dead_code)]
+#![deny(warnings)]
+#![deny(clippy::unwrap_used)]
+
+use scopeguard::defer;
+use std::process::{
+	Command,
+	Stdio,
+};
+
+use std::error::Error;
+
+fn init_screenshot(filename: &str) -> Result<bool, Box<dyn Error>> {
+	let coords = {
+		let output = Command::new("slurp")
+			.args(["-c", "#FA7265AF", "-s", "#00000030", "-b", "#00000030"])
+			.stdout(Stdio::piped())
+			.spawn()?
+			.wait_with_output()?;
+
+		String::from_utf8_lossy(&output.stdout).to_string()
+	};
+
+	if coords.is_empty() {
+		return Ok(false);
+	}
+
+	Command::new("grim")
+		.arg("-g")
+		.arg(coords.to_string().trim())
+		.arg(filename)
+		.spawn()?
+		.wait()
+		.map(drop)?;
+
+	Ok(true)
+}
+
+fn annotate_screenshot(path: &str) -> Result<(), Box<dyn Error>> {
+	Ok(
+		Command::new("satty")
+			.arg("-f")
+			.arg(path)
+			.arg("-o")
+			.arg(path)
+			.arg("--fullscreen")
+			.arg("--disable-notifications")
+			.spawn()?
+			.wait()
+			.map(drop)?,
+	)
+}
+
+fn main() {
+	let lock_file_path = ".screenshot.lock";
+
+	if std::fs::exists(lock_file_path).unwrap_or(false) {
+		println!(
+			"Screenshot already in progress, exiting. delete {} to force",
+			lock_file_path
+		);
+		std::process::exit(0);
+	}
+
+	std::fs::write(lock_file_path, "").expect("Failed to write lock file");
+
+	defer! {
+		std::fs::remove_file(lock_file_path).ok();
+	};
+
+	let screenshots_dir = std::env::args().nth(1).expect("No screenshot directory specified");
+
+	let datetime = chrono::Local::now();
+	let filename = datetime.format("Screenshot from %Y-%m-%d %H-%M-%S.png").to_string();
+
+	let path = format!("{}/{}", screenshots_dir, filename);
+
+	let done = init_screenshot(&path).expect("Failed to initialize screenshot");
+	if !done {
+		return;
+	}
+
+	if std::env::args().any(|arg| arg == "--annotate") {
+		annotate_screenshot(&path).expect("Failed to annotate screenshot");
+	} else {
+		let content = std::fs::File::open(&path).expect("Failed to open screenshot");
+
+		let mut cmd = Command::new("wl-copy");
+		let child = cmd.stdin(Stdio::from(content));
+
+		child
+			.spawn()
+			.expect("Could not spawn wl-copy")
+			.wait()
+			.expect("Failed to copy screenshot");
+	}
+}
