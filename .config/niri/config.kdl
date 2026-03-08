@@ -259,6 +259,12 @@ window-rule {
     match app-id=r#"org.quickshell$"#
     open-floating true
 }
+// Open dialogue boxes as floating by default
+window-rule {
+    match app-id=r#"yad"#
+    match app-id=r#"zenity"#
+    open-floating true
+}
 debug {
     honor-xdg-activation-with-invalid-serial
 }
