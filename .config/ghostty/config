@@ -1,5 +1,6 @@
 # Font Configuration
-font-size = 12
+font-family = "Inconsolata Nerd Font Mono"
+font-size = 13
 
 # Window Configuration
 window-decoration = false
