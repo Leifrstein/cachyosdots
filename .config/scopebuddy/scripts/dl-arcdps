@@ -1,0 +1,33 @@
+#!/bin/bash
+GW2_DIR=$1
+ARCDPS_DLL="$GW2_DIR/addons/ArcDPS.dll"
+NEWMD5SUM=$(wget -qO- https://www.deltaconnected.com/arcdps/x64/d3d11.dll.md5sum | awk '{print $1}')
+MD5SUM=$(md5sum "$ARCDPS_DLL" 2>/dev/null | awk '{print $1}')
+MANAGED_FILE="$GW2_DIR/.arcdps_managed"
+MANAGED_ARCDPS=0
+if [ -f "$MANAGED_FILE" ]; then
+    MANAGED_ARCDPS=1
+fi
+if [ "$MD5SUM" != "$NEWMD5SUM" ] || [ -f "$MANAGED_FILE" ]; then
+    dialog=$(yad --form --separator="," \
+        --title="ArcDPS Manager" \
+        --text="Update ArcDPS?\nNew MD5: $NEWMD5SUM\nOld MD5: $MD5SUM" \
+        --field="Manage ArcDPS on every launch":CHK $MANAGED_ARCDPS \
+        --button="Remove ArcDPS":6 \
+        --button="Update ArcDPS":4 \
+        --button="Launch GW2":2
+        )
+    status=$?
+    IFS=, read -r MANAGED_ARCDPS <<< "$dialog"
+    case $status in
+        4)
+            wget -O "$ARCDPS_DLL" https://www.deltaconnected.com/arcdps/x64/d3d11.dll ;;
+        6)
+            rm "$ARCDPS_DLL" ;;
+    esac
+    if [ "$MANAGED_ARCDPS" == "TRUE" ] && [ ! -f "$MANAGED_FILE" ]; then
+        touch "$MANAGED_FILE"
+    elif [ "$MANAGED_ARCDPS" == "FALSE" ] && [ -f "$MANAGED_FILE" ]; then
+        rm "$MANAGED_FILE"
+    fi
+fi
