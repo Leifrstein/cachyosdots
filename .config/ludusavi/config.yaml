@@ -12,6 +12,9 @@ roots:
     path: /home/leifrstein/.config/heroic
   - store: steam
     path: /home/leifrstein/.local/share/Steam
+  - store: lutris
+    path: /home/leifrstein/.local/share/lutris
+    database: ~
 redirects: []
 backup:
   path: /home/leifrstein/Games/Saves Backup
@@ -27,7 +30,9 @@ backup:
       uplay: false
     ignoredPaths: []
     ignoredRegistry: []
-  toggledPaths: {}
+  toggledPaths:
+    "Baldur's Gate 3":
+      "/home/leifrstein/.local/share/Steam/steamapps/compatdata/1086940/pfx/drive_c/users/steamuser/AppData/Local/Larian Studios/Baldur's Gate 3/Mods": false
   toggledRegistry: {}
   sort:
     key: status
