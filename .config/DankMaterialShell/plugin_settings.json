@@ -14,6 +14,10 @@
     "enabled": true
   },
   "dankKDEConnect": {
-    "enabled": true
+    "enabled": true,
+    "selectedDeviceId": "c13eda8586a2412088e0ce5defa3ceef"
+  },
+  "dankClight": {
+    "enabled": false
   }
 }
