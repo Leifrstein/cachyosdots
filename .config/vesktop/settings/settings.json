@@ -288,9 +288,6 @@
         "MessageLogger": {
             "enabled": false
         },
-        "MessageTags": {
-            "enabled": false
-        },
         "MoreQuickReactions": {
             "enabled": false
         },
@@ -579,6 +576,9 @@
         },
         "WebContextMenus": {
             "enabled": true
+        },
+        "CustomCommands": {
+            "enabled": false
         }
     },
     "uiElements": {
@@ -595,6 +595,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1771799489907
+        "settingsSyncVersion": 1773413947033
     }
 }
