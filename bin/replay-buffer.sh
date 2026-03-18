@@ -11,7 +11,7 @@ OUTPUT="$HOME/Videos/VODs/Replays"
 
 gpu-screen-recorder \
   -w DP-2 \
-  -r 120 \
+  -r 50 \
   -a default_input\|default_output \
   -c mp4 \
   -k hevc \
