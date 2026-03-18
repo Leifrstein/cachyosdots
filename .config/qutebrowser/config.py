@@ -50,7 +50,8 @@ c.url.searchengines = {
     '!trle':  'https://www.deepl.com/translator#pt/en/{}',
     '!dai':   'https://duck.ai/?q={}',
     '!gpt':   'https://chat.openai.com/?q={}',
-    '!gem':   'https://gemini.google.com/app?q={}'
+    '!gem':   'https://gemini.google.com/app?q={}',
+    '!nya':   'https://nyaa.si/?q={}'
 }
 
 # --- ZEN MODE SETTINGS (Initial State: Hidden) ---
