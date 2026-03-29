@@ -5,6 +5,7 @@ bufferline = "multiple"
 cursorline = true
 cursorcolumn = true
 color-modes = true
+clipboard-provider = "wayland"
 
 [editor.lsp]
 display-messages = true
